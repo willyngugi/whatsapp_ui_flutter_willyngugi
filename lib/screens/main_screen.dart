@@ -1,7 +1,8 @@
 import 'package:bottom_navigation_app/providers/nav_state_provider.dart';
-import 'package:bottom_navigation_app/screens/home_screen.dart';
-import 'package:bottom_navigation_app/screens/search_screen.dart';
-import 'package:bottom_navigation_app/screens/settings_screen.dart';
+import 'package:bottom_navigation_app/screens/calls_screen.dart';
+import 'package:bottom_navigation_app/screens/chats_screen.dart';
+import 'package:bottom_navigation_app/screens/updates_screen.dart';
+import 'package:bottom_navigation_app/screens/communities_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,10 +17,12 @@ class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
+  int currentIndex = 0;
+
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -32,16 +35,21 @@ class _MainScreenState extends State<MainScreen>
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final currentIndex = ref.watch(navigationStateProvider);
+        currentIndex = ref.watch(navigationStateProvider);
         _tabController.index = currentIndex;
         return Scaffold(
           body: TabBarView(
             controller: _tabController,
             children: const [
-              HomeScreen(),
-              SearchScreen(),
-              SettingsScreen(),
+              ChatsScreen(),
+              UpdatesScreen(),
+              CommunitiesScreen(),
+              CallsScreen(),
             ],
+          ),
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add_box),
+            onPressed: () {},
           ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: currentIndex,
@@ -50,16 +58,50 @@ class _MainScreenState extends State<MainScreen>
             },
             iconSize: 20.0,
             elevation: 5.0,
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            type: BottomNavigationBarType.fixed,
+            selectedFontSize: 15.0,
+            unselectedFontSize: 15.0,
+            items: [
               BottomNavigationBarItem(
-                  icon: Icon(Icons.search), label: 'Search'),
+                icon: const Icon(Icons.chat_outlined),
+                label: 'Chats',
+                activeIcon: _buildIconWithBackground(0, Icons.chat),
+              ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings), label: 'Settings'),
+                icon: const Icon(Icons.add_alert_outlined),
+                label: 'Updates',
+                activeIcon: _buildIconWithBackground(1, Icons.add_alert),
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.people_alt_outlined),
+                label: 'Communities',
+                activeIcon: _buildIconWithBackground(2, Icons.people),
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.call_outlined),
+                label: 'Calls',
+                activeIcon: _buildIconWithBackground(3, Icons.call),
+              ),
             ],
           ),
         );
       },
+    );
+  }
+
+  Widget _buildIconWithBackground(int index, IconData icon) {
+    return Container(
+      width: 50.0,
+      height: 25.0,
+      decoration: BoxDecoration(
+        color: currentIndex == index
+            ? Theme.of(context).colorScheme.onPrimary
+            : Colors.transparent,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Icon(
+        icon,
+      ),
     );
   }
 }

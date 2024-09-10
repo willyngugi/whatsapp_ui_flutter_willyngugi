@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class CallsScreen extends StatelessWidget {
+  const CallsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Screen'),
+        title: const Text('Calls'),
+        actions: const [
+          Icon(Icons.camera_alt_outlined),
+          SizedBox(width: 20),
+          Icon(Icons.search),
+          SizedBox(width: 20),
+          Icon(Icons.more_vert),
+          SizedBox(width: 10),
+        ],
       ),
       body: Center(
         child: Text(
-          'HOME SCREEN',
+          'CALLS SCREEN',
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 color: Theme.of(context).colorScheme.onSurface,
                 fontSize: 20.0,
