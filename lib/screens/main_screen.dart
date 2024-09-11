@@ -48,7 +48,7 @@ class _MainScreenState extends State<MainScreen>
             ],
           ),
           floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add_box),
+            child: const Icon(Icons.add_box),
             onPressed: () {},
           ),
           bottomNavigationBar: BottomNavigationBar(
