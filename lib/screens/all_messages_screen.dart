@@ -11,7 +11,17 @@ class AllMessagesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: chats.length,
-      itemBuilder: (ctx, index) => ChatItem(message: chats[index]),
+      itemBuilder: (ctx, index) => InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (ctx) => DirectMessageScreen(user: chats[index].sender),
+            ),
+          );
+        },
+        child: ChatItem(message: chats[index]),
+      ),
     );
   }
 }

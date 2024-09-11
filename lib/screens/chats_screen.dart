@@ -105,6 +105,10 @@ class _ChatsScreenState extends State<ChatsScreen>
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add_box),
+        onPressed: () {},
+      ),
     );
   }
 }

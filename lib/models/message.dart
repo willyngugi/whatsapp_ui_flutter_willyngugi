@@ -25,63 +25,66 @@ final User currentUser = User(
 final User liam = User(
   id: 1,
   name: 'Liam',
-  imageUrl: 'https://pixabay.com/photos/beard-face-man-model-mustache-1845166/',
+  imageUrl: 'assets/liam.jpg',
 );
 final User noah = User(
   id: 2,
   name: 'Noah',
-  imageUrl: 'https://pixabay.com/photos/man-model-portrait-pose-style-7428290/',
+  imageUrl: 'assets/noah.jpg',
 );
 final User oliver = User(
   id: 3,
   name: 'Oliver',
-  imageUrl:
-      'https://pixabay.com/photos/man-coffee-outdoors-lake-lakeside-3803551/',
+  imageUrl: 'assets/oliver.jpg',
 );
 final User james = User(
   id: 4,
   name: 'James',
-  imageUrl:
-      'https://pixabay.com/photos/entrepreneur-start-up-man-planning-593358/',
+  imageUrl: 'assets/james.jpg',
 );
 final User mohammed = User(
   id: 5,
   name: 'Mohammed',
-  imageUrl:
-      'https://pixabay.com/photos/boy-teenager-portrait-standing-1284509/',
+  imageUrl: 'assets/mohammed.jpg',
 );
 
 //FEMALE USERS
 final User emily = User(
   id: 6,
   name: 'Emily',
-  imageUrl:
-      'https://pixabay.com/photos/woman-model-portrait-pose-style-3584435/',
+  imageUrl: 'assets/emily.jpg',
 );
 final User sophia = User(
   id: 7,
   name: 'Sophia',
-  imageUrl:
-      'https://pixabay.com/photos/woman-portrait-model-smile-smiling-657753/',
+  imageUrl: 'assets/sophia.jpg',
 );
 final User mia = User(
   id: 8,
   name: 'Mia',
-  imageUrl:
-      'https://pixabay.com/photos/fashion-model-portrait-indian-woman-6960097/',
+  imageUrl: 'assets/mia.jpg',
 );
 final User eve = User(
   id: 9,
   name: 'Eve',
-  imageUrl:
-      'https://pixabay.com/photos/woman-fashion-portrait-model-pose-6771288/',
+  imageUrl: 'assets/eve.jpg',
 );
 final User aisha = User(
   id: 10,
   name: 'Aisha',
-  imageUrl:
-      'https://pixabay.com/photos/woman-model-portrait-pose-style-4390055/',
+  imageUrl: 'assets/aisha.jpg',
 );
+
+//GROUPS
+final User developers =
+    User(id: 21, name: 'Developers', imageUrl: 'assets/developers.jpg');
+final User family = User(id: 21, name: 'Family', imageUrl: 'assets/family.jpg');
+final User friends =
+    User(id: 21, name: 'Friends', imageUrl: 'assets/friends.jpg');
+final User manUtd =
+    User(id: 21, name: 'Man United Lovers', imageUrl: 'assets/manutd.jpg');
+final User computerScience =
+    User(id: 21, name: 'Computer Science', imageUrl: 'assets/csclass.jpg');
 
 // ALL CONTACTS
 List<User> allContacts = [
@@ -108,7 +111,7 @@ List<Message> chats = [
   Message(
     sender: noah,
     time: '4:09 PM',
-    text: 'Man United won today, what a surprise!',
+    text: '😂😂😂😂Man United won today, what a surprise!',
     unread: true,
   ),
   Message(
@@ -120,13 +123,13 @@ List<Message> chats = [
   Message(
     sender: oliver,
     time: '3:37 PM',
-    text: 'Man, these presidential debates are a joke!',
+    text: '😔😔Man, these presidential debates are a joke!',
     unread: false,
   ),
   Message(
     sender: james,
     time: '2:32 PM',
-    text: 'Received it man, thanks!',
+    text: 'Received it man, thanks!🙏🙏',
     unread: true,
   ),
   Message(
@@ -138,7 +141,7 @@ List<Message> chats = [
   Message(
     sender: sophia,
     time: '11:47 AM',
-    text: 'Will, what did he say to you?',
+    text: 'Will, what did he say to you?🤷🤷',
     unread: false,
   ),
   Message(
@@ -158,6 +161,75 @@ List<Message> chats = [
     time: '10:23 AM',
     text: 'Say hi to them. Have fun!',
     unread: false,
+  ),
+];
+
+// EXAMPLE GROUP CHATS
+List<Message> groupChats = [
+  Message(
+    sender: manUtd,
+    time: '5:40 PM',
+    text: 'Manager has to go now!',
+    unread: false,
+  ),
+  Message(
+    sender: friends,
+    time: '4:09 PM',
+    text: 'We are gonna have so much fun!',
+    unread: true,
+  ),
+  Message(
+    sender: developers,
+    time: '12:02 PM',
+    text: 'Flutter is the best people!',
+    unread: false,
+  ),
+  Message(
+    sender: family,
+    time: '3:37 PM',
+    text: 'I love you guys.',
+    unread: false,
+  ),
+  Message(
+    sender: computerScience,
+    time: '2:32 PM',
+    text: 'Dr. Williams is expecting us in class today',
+    unread: true,
+  ),
+];
+
+//EXAMPLE STATUSES
+
+List<Message> status = [
+  Message(
+    sender: eve,
+    time: '5:40 PM',
+    text: '',
+    unread: false,
+  ),
+  Message(
+    sender: james,
+    time: '4:09 PM',
+    text: '',
+    unread: true,
+  ),
+  Message(
+    sender: mia,
+    time: '12:02 PM',
+    text: '',
+    unread: false,
+  ),
+  Message(
+    sender: oliver,
+    time: '3:37 PM',
+    text: '',
+    unread: false,
+  ),
+  Message(
+    sender: oliver,
+    time: '2:32 PM',
+    text: '',
+    unread: true,
   ),
 ];
 
@@ -223,7 +295,7 @@ List<Message> chatNoah = [
   Message(
     sender: liam,
     time: '4.09 PM',
-    text: 'Man United won today, what a surprise!',
+    text: '😂😂😂😂Man United won today, what a surprise!',
     unread: true,
   ),
 ];
@@ -244,7 +316,7 @@ List<Message> chatOliver = [
   Message(
     sender: oliver,
     time: '3:37 PM',
-    text: 'Man, these presidential debates are a joke!',
+    text: '😔😔Man, these presidential debates are a joke!',
     unread: true,
   ),
 ];
@@ -271,7 +343,7 @@ List<Message> chatJames = [
   Message(
     sender: james,
     time: '2:32 PM',
-    text: 'Received it man, thanks!',
+    text: 'Received it man, thanks! 🙏🙏🙏',
     unread: true,
   ),
 ];
@@ -358,7 +430,7 @@ List<Message> chatSophia = [
   Message(
     sender: sophia,
     time: '11:47 AM',
-    text: 'Will, what did he say to you?',
+    text: 'Will, what did he say to you?🤷🤷',
     unread: false,
   ),
 ];
@@ -473,3 +545,28 @@ List<Message> chatAisha = [
     unread: false,
   ),
 ];
+
+List<Message> getList(String listName) {
+  switch (listName) {
+    case 'chatLiam':
+      return chatLiam;
+    case 'chatNoah':
+      return chatNoah;
+    case 'chatOliver':
+      return chatOliver;
+    case 'chatJames':
+      return chatJames;
+    case 'chatMohammed':
+      return chatMohammed;
+    case 'chatEmily':
+      return chatEmily;
+    case 'chatSophia':
+      return chatSophia;
+    case 'chatMia':
+      return chatMia;
+    case 'chatAisha':
+      return chatAisha;
+    default:
+      return [];
+  }
+}
